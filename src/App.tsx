@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <VantaBackground />
-      <main className="relative z-10 ">
+      <main className="relative z-10 w-full max-w-screen overflow-x-hidden ">
         <Navbar />
         <Hero />
         <About />
@@ -20,7 +20,7 @@ function App() {
         <Footer />
       </main>
     </>
-  )
+  );
 }
 
 export default App
