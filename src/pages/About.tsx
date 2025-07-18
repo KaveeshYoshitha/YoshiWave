@@ -40,6 +40,8 @@ const About = () => {
             <img
               src={TeamWork}
               alt="Team working together"
+              width="100%"
+              height="100%"
               className="rounded-xl shadow-xl object-cover w-full h-auto md:h-[400px]"
             />
           </div>
