@@ -15,39 +15,47 @@ const Services = () => {
 
     if (!section || !container) return;
 
-    // We get the total width to scroll based on the container's scrollWidth minus the viewport width
-    const getScrollAmount = () => {
-      let containerWidth = container.scrollWidth;
-      return -(containerWidth - window.innerWidth + (window.innerWidth * 0.1)); // adding a little padding to the end
-    };
+    let mm = gsap.matchMedia();
 
-    const tween = gsap.to(container, {
-      x: getScrollAmount,
-      ease: "none",
-    });
+    mm.add("(min-width: 768px)", () => {
+      // We get the total width to scroll based on the container's scrollWidth minus the viewport width
+      const getScrollAmount = () => {
+        let containerWidth = container.scrollWidth;
+        return -(containerWidth - window.innerWidth + (window.innerWidth * 0.1)); // adding a little padding to the end
+      };
 
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top top",
-      end: () => `+=${getScrollAmount() * -1}`,
-      pin: true,
-      animation: tween,
-      scrub: 1,
-      invalidateOnRefresh: true,
+      const tween = gsap.to(container, {
+        x: getScrollAmount,
+        ease: "none",
+      });
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: () => `+=${getScrollAmount() * -1}`,
+        pin: true,
+        animation: tween,
+        scrub: 1,
+        invalidateOnRefresh: true,
+      });
+
+      return () => {
+        // Cleanup if necessary
+      };
     });
   }, { scope: sectionRef });
 
-  const cardClass = "bg-transparent border-2 border-white shadow-lg rounded-xl p-5 hover:shadow-xl transition duration-300 w-[85vw] sm:w-[45vw] lg:w-[30vw] shrink-0 flex flex-col justify-center";
+  const cardClass = "bg-[#111] bg-opacity-40 backdrop-blur-sm border border-white/20 shadow-lg rounded-xl p-6 hover:shadow-2xl transition duration-300 w-full md:w-[45vw] lg:w-[30vw] shrink-0 flex flex-col justify-center";
 
   return (
     <section
       id="services"
       ref={sectionRef}
-      className="bg-transparent py-20 px-4 sm:px-6 md:px-10 lg:px-24 text-gray-800 overflow-hidden flex flex-col justify-center min-h-screen relative"
+      className="bg-transparent py-20 px-4 sm:px-6 md:px-10 lg:px-24 text-gray-800 overflow-hidden flex flex-col justify-center md:min-h-screen relative"
       style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
     >
       <div className="max-w-6xl mx-auto text-center mb-12 shrink-0">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[#00BFA6]">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-[#00BFA6]">
           Our Services
         </h2>
         <p className="text-white text-base sm:text-lg max-w-2xl mx-auto">
@@ -58,7 +66,7 @@ const Services = () => {
 
       <div 
         ref={containerRef}
-        className="flex flex-nowrap gap-6 md:gap-10 w-max pl-4 md:pl-0 items-stretch"
+        className="flex flex-col md:flex-row md:flex-nowrap gap-6 md:gap-10 md:w-max w-full items-stretch"
       >
         {/* Service Item 1 */}
         <div className={cardClass}>

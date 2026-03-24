@@ -84,7 +84,7 @@ const [errors, setErrors] = useState<FormErrors>({});
   return (
     <section
       id="contact"
-      className="bg-transparent h-screen py-10 px-6 sm:px-10 lg:px-24 text-gray-800"
+      className="bg-transparent min-h-screen py-16 px-6 sm:px-10 lg:px-24 text-gray-800 flex flex-col justify-center"
       style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
     >
       <div className="max-w-3xl mx-auto text-center">

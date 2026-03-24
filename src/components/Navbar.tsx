@@ -6,7 +6,7 @@ const Navbar = () => {
 
   useEffect(() => {
   const handleScroll = () => {
-    setScrolled(window.scrollY <= 10);
+    setScrolled(window.scrollY > 10);
   };
 
   window.addEventListener("scroll", handleScroll);
@@ -40,6 +40,8 @@ const Navbar = () => {
         <div className="md:hidden">
           <button
             className="text-white focus:outline-none"
+            aria-label="Toggle mobile menu"
+            aria-expanded={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <svg
@@ -61,7 +63,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-black/90 text-white py-4 px-6 space-y-3">
+        <div className="md:hidden absolute top-full left-0 w-full bg-black/95 text-white py-4 px-6 space-y-3 shadow-xl backdrop-blur-md border-t border-gray-800">
           <a href="#home" className="block hover:text-cyan-400" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
           <a href="#about" className="block hover:text-cyan-400" onClick={() => setIsMobileMenuOpen(false)}>About</a>
           <a href="#services" className="block hover:text-cyan-400" onClick={() => setIsMobileMenuOpen(false)}>Services</a>

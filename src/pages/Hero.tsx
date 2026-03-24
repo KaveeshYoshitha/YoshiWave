@@ -40,23 +40,23 @@ const Hero = () => {
       <div
         id="home"
         ref={container}
-        className="hero bg-transparent min-h-screen"
+        className="hero bg-transparent min-h-screen pt-20 pb-10"
         style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
       >
-        <div className="hero-content flex-col lg:flex-row-reverse overflow-hidden">
+        <div className="hero-content flex-col lg:flex-row-reverse overflow-hidden text-center lg:text-left px-4 sm:px-8">
           <img
             ref={imgRef}
             src={teamImg}
-            width=" 100%"
+            width="100%"
             height="100%"
-            alt="Team"
-            className="max-w-sm rouned-lg shadow-2xl border-0"
+            alt="YoshiWave development team working on tailored digital solutions"
+            className="w-full max-w-xs sm:max-w-sm lg:max-w-md rounded-lg shadow-2xl border-0 mb-8 lg:mb-0"
           />
-          <div ref={textRef}>
-            <h1 className="text-5xl font-bold text-[#00BFA6] ">
+          <div ref={textRef} className="max-w-2xl px-2">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#00BFA6] leading-tight drop-shadow-md">
               Ride the Digital Wave with YoshiWave
             </h1>
-            <p className="py-6 text-lg">
+            <p className="py-6 text-base sm:text-lg lg:text-xl text-white/90">
               YoshiWave blends innovation and design to create immersive digital
               experiences. Whether you're launching a startup or scaling your
               brand, we craft solutions that move with your vision — bold,
